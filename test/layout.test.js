@@ -30,3 +30,17 @@ describe('translator layout', () => {
 `);
   });
 });
+
+it('should translate cols', () => {
+  expect(translate(`
+<div class="col col-md-auto">
+</div>
+<div class="col-12 col-sm-6 col-md-4 col-lg-2 col-xl-1">
+</div>
+`).jsx).to.eql(`
+<Col xs md="auto">
+</Col>
+<Col xs="12" sm="6" md="4" lg="2" xl="1">
+</Col>
+`);
+});

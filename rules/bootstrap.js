@@ -622,4 +622,43 @@ module.exports = [
       utils.finalizeClasses($(elem));
     });
   },
+
+  // Col
+  ($, imports) => {
+    const makeGridCols = (classPrefix, prop) => {
+      const cols = [...Array(12).keys()].map(c => ({
+        [`${classPrefix}-${c + 1}`]: {
+          [prop]: `${c + 1}`,
+        },
+      }));
+      cols.push({
+        [classPrefix]: {
+          [prop]: true,
+        },
+        [`${classPrefix}-auto`]: {
+          [prop]: 'auto',
+        },
+      });
+      return cols;
+    };
+    const columnClasses = Object.assign(
+        {},
+        ...makeGridCols('col', 'xs'),
+        ...makeGridCols('col-sm', 'sm'),
+        ...makeGridCols('col-md', 'md'),
+        ...makeGridCols('col-lg', 'lg'),
+        ...makeGridCols('col-xl', 'xl'),
+      );
+    const sourceClasses = Object.keys(columnClasses).map(col => `div.${col}`);
+    $(sourceClasses.join(',')).each((i, elem) => {
+      imports.add('Col', 'reactstrap');
+      elem.tagName = 'Col';
+
+      utils.translateClassNames($(elem), columnClasses);
+      utils.removeClasses($(elem), [
+        'col',
+      ]);
+      utils.finalizeClasses($(elem));
+    });
+  },
 ];
