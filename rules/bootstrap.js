@@ -404,6 +404,17 @@ module.exports = [
       utils.finalizeClasses($(elem));
     });
   },
+  // NavbarToggler
+  ($, imports) => {
+    $('.navbar-toggler').each((i, elem) => {
+      imports.add('NavbarToggler', 'reactstrap');
+      utils.transposeTag($(elem), 'button', 'NavbarToggler');
+      utils.removeClasses($(elem), [
+        'navbar-toggler',
+      ]);
+      utils.finalizeClasses($(elem));
+    });
+  },
   // Button
   ($, imports) => {
     $('button').each((i, elem) => {
@@ -556,7 +567,7 @@ module.exports = [
   ($, imports) => {
     $('nav.navbar, [role="navigation"].navbar').each((i, elem) => {
       imports.add('Navbar', 'reactstrap');
-      utils.transposeTag($(elem), 'Navbar', 'nav');
+      utils.transposeTag($(elem), 'nav', 'Navbar');
       utils.removeClasses($(elem), [
         'navbar',
       ]);

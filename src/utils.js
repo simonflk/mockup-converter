@@ -33,9 +33,9 @@ module.exports = {
     }
   },
 
-  transposeTag(elem, component, defaultTag) {
+  transposeTag(elem, defaultTag, component) {
     const currentTag = elem.get(0).tagName;
-    if (defaultTag && currentTag !== defaultTag) {
+    if (currentTag !== defaultTag) {
       elem.attr('tag', currentTag);
     }
     elem.get(0).tagName = component;

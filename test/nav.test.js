@@ -15,4 +15,14 @@ describe('translator navigation', () => {
 </Navbar>
 `);
   });
+
+  it('should translate navbar-togglers', () => {
+    expect(translate(`
+<button class="navbar-toggler">Foo</button>
+<div class="navbar-toggler">Bar</div>
+`).jsx).to.eql(`
+<NavbarToggler>Foo</NavbarToggler>
+<NavbarToggler tag="div">Bar</NavbarToggler>
+`);
+  });
 });
