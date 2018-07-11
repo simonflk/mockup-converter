@@ -33,6 +33,14 @@ module.exports = {
     }
   },
 
+  transposeTag(elem, component, defaultTag) {
+    const currentTag = elem.get(0).tagName;
+    if (defaultTag && currentTag !== defaultTag) {
+      elem.attr('tag', currentTag);
+    }
+    elem.get(0).tagName = component;
+  },
+
   fixProps(jsxString) {
     let outString = jsxString.replace(new RegExp(`="${constants.BooleanProperty}"`, 'g'), '');
     outString = outString.replace(/="@@@(.*?)@@@"/g, (found, group1) => {

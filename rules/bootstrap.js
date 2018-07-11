@@ -552,4 +552,74 @@ module.exports = [
       utils.finalizeClasses($(elem));
     });
   },
+  // Navbar
+  ($, imports) => {
+    $('nav.navbar, [role="navigation"].navbar').each((i, elem) => {
+      imports.add('Navbar', 'reactstrap');
+      utils.transposeTag($(elem), 'Navbar', 'nav');
+      utils.removeClasses($(elem), [
+        'navbar',
+      ]);
+      if ($(elem).attr('role') === 'navigation') {
+        $(elem).removeAttr('role');
+      }
+      utils.translateClassNames($(elem), {
+        'navbar-expand': {
+          expand: 'xs',
+        },
+        'navbar-expand-xs': {
+          expand: 'xs',
+        },
+        'navbar-expand-sm': {
+          expand: 'sm',
+        },
+        'navbar-expand-md': {
+          expand: 'md',
+        },
+        'navbar-expand-lg': {
+          expand: 'lg',
+        },
+        'navbar-expand-xl': {
+          expand: 'xl',
+        },
+        'navbar-light': {
+          light: true,
+        },
+        'navbar-dark': {
+          dark: true,
+        },
+        'navbar-primary': {
+          'bg-primary': true,
+        },
+        'navbar-secondary': {
+          'bg-secondary': true,
+        },
+        'navbar-success': {
+          'bg-success': true,
+        },
+        'navbar-danger': {
+          'bg-danger': true,
+        },
+        'navbar-warning': {
+          'bg-warning': true,
+        },
+        'navbar-info': {
+          'bg-info': true,
+        },
+        'fixed-top': {
+          fixed: 'top',
+        },
+        'fixed-bottom': {
+          fixed: 'bottom',
+        },
+        'sticky-top': {
+          sticky: 'top',
+        },
+        'sticky-bottom': {
+          sticky: 'bottom',
+        },
+      });
+      utils.finalizeClasses($(elem));
+    });
+  },
 ];
