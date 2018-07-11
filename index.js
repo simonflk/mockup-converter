@@ -35,6 +35,8 @@ module.exports = (html, ruleSet = bootstrapRules) => {
 
   utils.fixStyles($);
 
+  utils.fixHyphenAttributes($);
+
   let jsx = utils.fixProps($.html());
   jsx = utils.fixClasses(jsx);
 

@@ -76,4 +76,17 @@ module.exports = {
       $(elem).attr('style', `@@@{${jsStyles}}@@@`);
     });
   },
+
+  fixHyphenAttributes($) {
+    $('body *').each((i, elem) => {
+      const $elem = $(elem);
+      const attribs = $elem.attr();
+      for (const attrName in attribs) {
+        if (attrName.match(/-/)) {
+          $elem.attr(camelCase(attrName), attribs[attrName]);
+          $elem.removeAttr(attrName);
+        }
+      }
+    });
+  },
 };
