@@ -13,11 +13,11 @@ describe('translator listgroup', () => {
 </ul>
 `).jsx).to.eql(`
 <Listgroup>
-  <ListgroupItem active>Cras justo odio</ListgroupItem>
-  <ListgroupItem disabled>Dapibus ac facilisis in</ListgroupItem>
-  <ListgroupItem action>Morbi leo risus</ListgroupItem>
-  <ListgroupItem color="info">Porta ac consectetur ac</ListgroupItem>
-  <ListgroupItem>Vestibulum at eros</ListgroupItem>
+  <ListGroupItem active>Cras justo odio</ListGroupItem>
+  <ListGroupItem disabled>Dapibus ac facilisis in</ListGroupItem>
+  <ListGroupItem action>Morbi leo risus</ListGroupItem>
+  <ListGroupItem color="info">Porta ac consectetur ac</ListGroupItem>
+  <ListGroupItem>Vestibulum at eros</ListGroupItem>
 </Listgroup>
 `);
   });

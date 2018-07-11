@@ -2,11 +2,11 @@ const utils = require('../src/utils');
 const constants = require('../src/constants');
 
 module.exports = [
-  // ListgroupItem
+  // ListGroupItem
   ($, imports) => {
     $('li.list-group-item').each((i, elem) => {
-      imports.add('ListgroupItem', 'reactstrap');
-      elem.tagName = 'ListgroupItem';
+      imports.add('ListGroupItem', 'reactstrap');
+      elem.tagName = 'ListGroupItem';
       utils.translateClassNames($(elem), {
         active: {
           active: true,
