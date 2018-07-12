@@ -633,7 +633,110 @@ module.exports = [
       utils.finalizeClasses($(elem));
     });
   },
-
+  // Nav
+  ($, imports) => {
+    $('.nav, .navbar-nav').each((i, elem) => {
+      imports.add('Nav', 'reactstrap');
+      utils.transposeTag($(elem), 'ul', 'Nav');
+      utils.removeClasses($(elem), [
+        'nav',
+      ]);
+      utils.translateClassNames($(elem), {
+        'flex-column': {
+          vertical: true,
+        },
+        'flex-xs-column': {
+          vertical: 'xs',
+        },
+        'flex-sm-column': {
+          vertical: 'sm',
+        },
+        'flex-md-column': {
+          vertical: 'md',
+        },
+        'flex-lg-column': {
+          vertical: 'lg',
+        },
+        'flex-xl-column': {
+          vertical: 'xl',
+        },
+        'flex-row': {
+          horizontal: true,
+        },
+        'navbar-nav': {
+          navbar: true,
+        },
+        'nav-justified': {
+          justified: true,
+        },
+        'nav-fill': {
+          fill: true,
+        },
+        'card-header-pills': {
+          card: true,
+          pills: true,
+        },
+        'card-header-tabs': {
+          card: true,
+          tabs: true,
+        },
+        'nav-tabs': {
+          tabs: true,
+        },
+        'justify-content-start': {
+          horizontal: 'start',
+        },
+        'justify-content-end': {
+          horizontal: 'end',
+        },
+        'justify-content-centered': {
+          horizontal: 'centered',
+        },
+        'justify-content-between': {
+          horizontal: 'between',
+        },
+        'justify-content-around': {
+          horizontal: 'around',
+        },
+      });
+      utils.finalizeClasses($(elem));
+    });
+  },
+  // NavItem
+  ($, imports) => {
+    $('.nav-item').each((i, elem) => {
+      imports.add('NavItem', 'reactstrap');
+      utils.transposeTag($(elem), 'li', 'NavItem');
+      utils.removeClasses($(elem), [
+        'nav-item',
+      ]);
+      utils.translateClassNames($(elem), {
+        active: {
+          active: true,
+        },
+      });
+      utils.finalizeClasses($(elem));
+    });
+  },
+  // NavLink
+  ($, imports) => {
+    $('.nav-link').each((i, elem) => {
+      imports.add('NavLink', 'reactstrap');
+      utils.transposeTag($(elem), 'a', 'NavLink');
+      utils.removeClasses($(elem), [
+        'nav-link',
+      ]);
+      utils.translateClassNames($(elem), {
+        active: {
+          active: true,
+        },
+        disabled: {
+          disabled: true,
+        },
+      });
+      utils.finalizeClasses($(elem));
+    });
+  },
   // Col
   ($, imports) => {
     const makeGridCols = (classPrefix, prop) => {
